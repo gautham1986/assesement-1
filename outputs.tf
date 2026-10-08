@@ -33,3 +33,12 @@ output "certificate_arn" {
   description = "Certificate used by the ALB's HTTPS listener"
   value       = local.certificate_arn
 }
+output "alb_dns_name" {
+  description = "DNS name of the load balancer"
+  value       = aws_lb.main.dns_name
+}
+
+output "alb_url" {
+  description = "Open this in a browser"
+  value       = "https://${aws_lb.main.dns_name}"
+}
