@@ -13,7 +13,11 @@
 # =============================================================================
 
 terraform {
-  backend "BACKEND_TYPE" {
-    # settings go here
+  backend "s3" {
+    bucket       = "assessment-1-tfstate-918464541383"
+    key          = "assessment-1/dev/terraform.tfstate"
+    region       = "eu-north-1"
+    encrypt      = true
+    use_lockfile = true
   }
 }
