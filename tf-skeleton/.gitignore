@@ -1,0 +1,12 @@
+# Terraform working files
+.terraform/
+*.tfstate
+*.tfstate.*
+state-backup.tfstate
+crash.log
+crash.*.log
+*.tfplan
+
+# Uncomment if terraform.tfvars holds secrets
+# terraform.tfvars
+# *.auto.tfvars
