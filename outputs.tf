@@ -25,3 +25,7 @@ output "site_bucket" {
   description = "S3 bucket holding the website"
   value       = aws_s3_bucket.site.bucket
 }
+output "instance_ids" {
+  description = "IDs of the nginx instances"
+  value       = aws_instance.app[*].id
+}

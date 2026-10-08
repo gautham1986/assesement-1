@@ -45,3 +45,13 @@ variable "database_subnet_cidrs" {
   description = "Isolated subnets reserved for a future database, one per AZ"
   type        = list(string)
 }
+variable "instance_type" {
+  description = "EC2 instance type for the nginx servers"
+  type        = string
+}
+
+variable "bootstrap_with_user_data" {
+  description = "true = user data installs nginx and syncs the site; false = leave it to Ansible"
+  type        = bool
+  default     = true
+}

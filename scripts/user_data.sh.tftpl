@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euxo pipefail
+
+# 1. Install nginx (wait up to 5 min if apt is busy on first boot)
+apt-get -o DPkg::Lock::Timeout=300 update -y
+apt-get -o DPkg::Lock::Timeout=300 install -y nginx
+systemctl enable --now nginx
+
+# 2. Install the AWS CLI (on Ubuntu 24.04 it comes as a snap)
+snap wait system seed.loaded
+snap install aws-cli --classic
+
+# 3. Pull the site from S3 now
+/snap/bin/aws s3 sync "s3://${bucket}" /var/www/html --delete --region "${region}"
+
+# 4. ...and again every 5 minutes
+cat > /etc/cron.d/site-sync <<'EOF'
+*/5 * * * * root /snap/bin/aws s3 sync s3://${bucket} /var/www/html --delete --region ${region} --only-show-errors
+EOF
