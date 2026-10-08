@@ -12,9 +12,17 @@
 # Copy the block below once for each variable.
 # =============================================================================
 
-variable "VARIABLE_NAME" {
-  description = ""
+variable "region" {
+  description = "AWS region to create resources in"
   type        = string
-  # default   = ""
-  # sensitive = true
+}
+
+variable "project" {
+  description = "Short project name, used in names and tags"
+  type        = string
+}
+
+variable "environment" {
+  description = "Environment name, e.g. dev or prod"
+  type        = string
 }

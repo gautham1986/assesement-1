@@ -7,4 +7,6 @@
 # If any value is a secret, do NOT commit this file to git.
 # =============================================================================
 
-VARIABLE_NAME = ""
+region      = "eu-north-1"
+project     = "assessment-1"
+environment = "dev"

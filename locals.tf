@@ -6,6 +6,12 @@
 # Fill in: one line per local → name = expression
 # Leave empty if you don't need any.
 # =============================================================================
-
 locals {
+  name_prefix = "${var.project}-${var.environment}"
+
+  common_tags = {
+    Project     = var.project
+    Environment = var.environment
+    ManagedBy   = "terraform"
+  }
 }
