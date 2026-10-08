@@ -21,3 +21,7 @@ output "caller_arn" {
   description = "The identity Terraform is logged in as"
   value       = data.aws_caller_identity.current.arn
 }
+output "site_bucket" {
+  description = "S3 bucket holding the website"
+  value       = aws_s3_bucket.site.bucket
+}
