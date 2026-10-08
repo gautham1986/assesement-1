@@ -9,6 +9,9 @@
 locals {
   name_prefix = "${var.project}-${var.environment}"
 
+  # First 3 AZs in your region, e.g. eu-north-1a, 1b, 1c
+  azs = slice(data.aws_availability_zones.available.names, 0, 3)
+
   common_tags = {
     Project     = var.project
     Environment = var.environment

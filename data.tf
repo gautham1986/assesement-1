@@ -14,3 +14,6 @@
 data "aws_caller_identity" "current" {
   # arguments go here
 }
+data "aws_availability_zones" "available" {
+  state = "available"
+}

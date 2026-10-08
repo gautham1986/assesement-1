@@ -26,3 +26,22 @@ variable "environment" {
   description = "Environment name, e.g. dev or prod"
   type        = string
 }
+variable "vpc_cidr" {
+  description = "CIDR block for the whole VPC"
+  type        = string
+}
+
+variable "frontend_subnet_cidrs" {
+  description = "Public subnets for the ALB and NAT gateway, one per AZ"
+  type        = list(string)
+}
+
+variable "backend_subnet_cidrs" {
+  description = "Private subnets for the nginx instances, one per AZ"
+  type        = list(string)
+}
+
+variable "database_subnet_cidrs" {
+  description = "Isolated subnets reserved for a future database, one per AZ"
+  type        = list(string)
+}
