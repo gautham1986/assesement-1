@@ -12,6 +12,6 @@
 # Copy the block once per data source. Delete it if you don't need any.
 # =============================================================================
 
-data "DATA_SOURCE_TYPE" "DATA_NAME" {
+data "aws_caller_identity" "current" {
   # arguments go here
 }

@@ -12,8 +12,12 @@
 # Copy the block once per output. Delete it if you don't need any.
 # =============================================================================
 
-output "OUTPUT_NAME" {
-  description = ""
-  value       = ""
-  # sensitive = true
+output "account_id" {
+  description = "The AWS account Terraform is using"
+  value       = data.aws_caller_identity.current.account_id
+}
+
+output "caller_arn" {
+  description = "The identity Terraform is logged in as"
+  value       = data.aws_caller_identity.current.arn
 }
