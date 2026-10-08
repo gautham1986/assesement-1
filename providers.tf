@@ -11,6 +11,6 @@
 # After this step run:  terraform init
 # =============================================================================
 
-provider "PROVIDER_NAME" {
-  # settings go here
+provider "aws" {
+  region = "eu-north-1"
 }
