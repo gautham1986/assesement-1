@@ -29,3 +29,7 @@ output "instance_ids" {
   description = "IDs of the nginx instances"
   value       = aws_instance.app[*].id
 }
+output "certificate_arn" {
+  description = "Certificate used by the ALB's HTTPS listener"
+  value       = local.certificate_arn
+}

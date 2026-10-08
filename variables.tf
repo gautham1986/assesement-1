@@ -55,3 +55,8 @@ variable "bootstrap_with_user_data" {
   type        = bool
   default     = true
 }
+variable "acm_certificate_arn" {
+  description = "ARN of a real ACM certificate. Leave empty to use a self-signed one."
+  type        = string
+  default     = ""
+}
